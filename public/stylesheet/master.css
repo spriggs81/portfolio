@@ -1,0 +1,64 @@
+body {
+   background-color: rgb(224, 224, 224);
+   margin: 0 auto;
+   font-family: cursive;
+}
+header, main, footer {
+   background-color: purple;
+   margin: 0 10%;
+}
+
+nav {
+   margin: 10px 20%;
+}
+
+nav>ul {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+nav>ul>li {
+   list-style-type: none;
+   font-weight: bold;
+   color: rgb(87, 174, 255);
+}
+
+nav>ul>li:hover {
+   color: green;
+   cursor: pointer;
+}
+
+nav>ul>li:first-child {
+   border: 2px red solid;
+   margin-left: -23%;
+   margin-right: 20%;
+
+}
+
+header {
+   text-align: center;
+}
+
+main {
+   scroll-behavior: auto;
+}
+
+.selected-menu {
+   color: rgb(41, 91, 138);
+}
+
+/* .logo {
+   position: fixed;
+   left: -10px;
+   background-color: black;
+} */
+
+.show-time {
+   background-color: white;
+   width: 80%;
+   margin: 0 auto;
+   border-radius: 10px;
+   box-shadow: 5px 5px 5px black;
+   padding: 5px 10px;
+}

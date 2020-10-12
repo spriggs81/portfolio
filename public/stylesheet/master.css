@@ -18,11 +18,16 @@ nav>ul {
 }
 
 nav>ul>li {
-   /* margin: 0 5%; */
+   margin: 0 4%;
+   justify-content: space-between;
    list-style-type: none;
    font-weight: bold;
    color: rgb(87, 174, 255);
    font-size: 1.4em;
+}
+
+nav>ul>li:last-child {
+   margin-right: 55%;
 }
 
 nav>ul li:hover {

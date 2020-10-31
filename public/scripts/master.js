@@ -211,8 +211,8 @@ app.loadUp = (data) => {
 
 app.init = () => {
    app.menuButtons();
-   // app.home();
-   app.projects();
+   app.home();
+   // app.projects();
 }
 
 app.notSetup = () => {

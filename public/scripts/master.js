@@ -112,7 +112,7 @@ app.bio = () => {
 };
 
 app.projects = () => {
-   const projects = [{title:'PM2-Watcher',app_type:'NPM Node Module',about_app:"I created pm2-watcher apps/processes that depend on pm2.  My module will allow a user or even a non-technical user to monitor pm2 without watching the server.  Unlike some created apps that update you when the app(s)/process(es) go down.  The module I created monitors all pm2 processes; if a process stops, fails, or errors, the app will send out an email notification.  If that same process was to come back online, the app sends out a follow-up email.\n\nThe app allows delays between the notification and the failed/recovered process, and you have an option to include your process' logs for failure emails.  The app keeps a record of your email messages, the email message status, and any failed/recovered process.",app:'https://www.npmjs.com/package/pm2-watcher',github:'https://github.com/spriggs81/pm2-watcher'},{title:'Support Tool',app_type:'web application',about_app:"I created this app after completing a online web developer bootcamp "}];
+   const projects = [{title:'PM2-Watcher',app_type:'NPM Node Module',app_tech:'NodeJS, ExpressJS, Pm2, JavaScript, HTML5 & CSS3',problem:'Pm2 didn\'t send out automatic notifications unless part of a plan that could get costly. If someone wasn\'t watching the server, they could miss issues that could affect the application\'s stability.  In some cases, the client may not notice a minor problem that could lead to a critical one.',solution:'This application monitors all pm2 processes and will send out an email notification if a process goes offline.  If a process recovers, then a follow-up email is sent out.',app:'https://www.npmjs.com/package/pm2-watcher',github:'https://github.com/spriggs81/pm2-watcher'},{title:'Support Tool',app_type:'web application',app_tech:'NodeJS, ExpressJS, PassportJS, MongoDB, MongooseJS, EJS, and Semantic UI',about_app:"I created this app after completing a online web developer bootcamp "}];
    const header = [];
    const main = [{main:'main',type:'div',id:'info-projects'}];
    app.removeAll('header');
@@ -121,10 +121,25 @@ app.projects = () => {
    let count = 0;
    for(project of projects){
       count++
-      const itemSpace = {main:'#info-projects',cn:'grid-1',type:'div',id:'project'+count};
+      const itemSpace = {main:'#info-projects',cn:'project-place',type:'div',id:'project'+count};
       const itemTitle = {main:'#project'+count,cn:'grid-1',type:'h1',text:project.title};
-      const itemBody = {main:'#project'+count,cn:'grid-1',type:'h3',text:project.about_app};
-      items.push(itemSpace,itemTitle,itemBody);
+      const itemStatHolder = {main:'#project'+count,id:'statP'+count,cn:'stats',type:'section'};
+      const itemStat1 = {main:'#statP'+count,type:'span',id:'p'+count+'-stat1',cn:'stat-items',text:'Project Type: '+project.app_type};
+      const itemStat2 = {main:'#statP'+count,type:'span',id:'p'+count+'-stat2',cn:'stat-items',text:'Project Tech: '+project.app_tech};
+      const itemProblem = {main:'#project'+count,cn:'grid-1',type:'h3',text:'The Problem:\n'+project.problem};
+      const itemSolution = {main:'#project'+count,cn:'grid-1',type:'h3',text:'The Solution:\n'+project.solution};
+      items.push(itemSpace,itemTitle,itemStatHolder,itemStat1,itemStat2,itemProblem,itemSolution);
+      const itemUrlHolder = {main:'#project'+count,cn:'grid-1',type:'div',id:'url-holder'+count};
+      if(project.app || project.github){
+         items.push(itemUrlHolder);
+         if(project.app){
+            const theApp = {main:'#url-holder'+count,type:'div',id:'app-url-p'+count+'-stat1',cn:'url-item',html:'App\'s URL: <span class="url">'+project.app+'</span>'};
+            items.push(theApp);
+         }
+         if(project.github){
+
+         }
+      }
    }
    app.loadUp(main);
    app.loadUp(items);
@@ -171,8 +186,6 @@ app.loadNewStatement = (num) => {
       const placement = document.querySelector('.words');
       app.arrowShow();
       placement.innerText = app.statements[num];
-   } else {
-      clearInterval(interval);
    }
 }
 
@@ -208,8 +221,8 @@ app.loadUp = (data) => {
 
 app.init = () => {
    app.menuButtons();
-   // app.home();
-   app.projects();
+   app.home();
+   // app.projects();
 }
 
 app.notSetup = () => {

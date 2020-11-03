@@ -8,23 +8,29 @@ header, main, footer {
 }
 
 nav {
+  /* background-color: green; */
    margin: 0 10% 0 16.5%;
-   display: inline-grid;
-   grid-template-columns: auto;
+   display: flex;
    height: 75px;
 }
 
 nav>ul {
-   display: flex;
+  /* background-color: blue; */
+  width: 100%;
+   display: grid;
+  grid-template-columns: min-content min-content min-content min-content;
+  grid-column-gap: 5%;
+
 }
 
 nav>ul>li {
-   margin: 0 4%;
+  /* background-color: red; */
+  width: 100%;
+  /* border: 1px orange solid; */
    list-style-type: none;
    font-weight: bold;
    color: rgb(94, 191, 247);
    font-size: 1.3em;
-   flex-direction: row;
 }
 
 nav>ul li:hover {
@@ -83,6 +89,13 @@ header {
    background-color: red;
 }
 
+#bio-stats {
+   display: grid;
+   grid-template-columns: 40% 60%;
+   margin-left: 4%;
+   text-transform: capitalize;
+   color: rgb(189, 189, 189);
+}
 
 .selected-menu:not(.logo) {
    color: rgb(41, 91, 138);
@@ -94,7 +107,8 @@ header {
 }
 
 .logo {
-   margin-right: 15%;
+  /* background-color: purple; */
+   margin-right: 10%;
    padding-bottom: 0;
    width: auto;
    height: auto;
@@ -146,14 +160,6 @@ header {
    animation-iteration-count: infinite;
 }
 
-#bio-stats {
-   display: grid;
-   grid-template-columns: 40% 60%;
-   margin-left: 4%;
-   text-transform: capitalize;
-   color: rgb(189, 189, 189);
-}
-
 .left-bio {
    /* background-color: red; */
    text-align: left;
@@ -196,6 +202,35 @@ header {
 .grid-2 {
    display: grid;
    grid-template-columns: auto auto;
+}
+
+.stats{
+  display: grid;
+  grid-template-columns: 40% 50%;
+  grid-column-gap: 5%;
+}
+
+.project-place {
+   display: grid;
+   grid-template-columns: auto;
+   border: 2px black dashed;
+   border-radius: 5px;
+   margin: 5% 0;
+   padding: 3% 2%;
+}
+
+.project-place:hover {
+   border: 2px black solid;
+}
+
+.url {
+   color: red;  
+}
+
+.url:hover {
+   color: blue;
+   text-decoration: underline;
+   cursor: pointer;
 }
 
 .bye {

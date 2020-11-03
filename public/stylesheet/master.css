@@ -210,7 +210,6 @@ header {
   grid-column-gap: 5%;
 }
 
-<<<<<<< HEAD
 .project-place {
    display: grid;
    grid-template-columns: auto;
@@ -225,7 +224,7 @@ header {
 }
 
 .url {
-   color: red;  
+   color: red;
 }
 
 .url:hover {
@@ -234,8 +233,6 @@ header {
    cursor: pointer;
 }
 
-=======
->>>>>>> c30da01c04bfa07631f17fd58ac39591aceb5056
 .bye {
    display: none;
 }

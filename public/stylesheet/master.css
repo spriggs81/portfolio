@@ -12,7 +12,7 @@ nav {
    margin: 0 17% 0 16.5%;
    display: grid;
    grid-template-columns: 20% 80%;
-   grid-column-gap: 10%;
+   grid-column-gap: 15%;
    height: 75px;
 }
 
@@ -20,8 +20,9 @@ nav>ul {
   margin-right: 20%;
   width: inherit%;
    display: grid;
-  grid-template-columns: auto auto auto;
-  grid-column-gap: 5%;
+   width: auto;
+  grid-template-columns: max-content max-content max-content;
+  grid-column-gap: 7%;
 
 }
 
@@ -30,7 +31,7 @@ nav>ul>li {
    list-style-type: none;
    font-weight: bold;
    color: rgb(94, 191, 247);
-   font-size: 1.3em;
+   font-size: 1.7em;
 }
 
 nav>ul li:hover {
@@ -47,29 +48,22 @@ hr {
   width: 100%;
 }
 
+iframe {
+  width: 100%;
+  height: 1000px;
+}
+
 #arrow {
    width: 50px;
    height: auto;
+   margin: auto;
 }
 
 #arrow-holder {
-   position: relative;
+  display: grid;
+  grid-template-columns: auto;
    height: 80px;
    margin: 5% auto;
-}
-
-#menu {
-   position: absolute;
-   top: 9.5%;
-   left: 80%;
-   font-weight: bold;
-   color: black;
-   font-size: 1.3em;
-}
-
-#menu:hover {
-   color: blue;
-   cursor: pointer;
 }
 
 #header-bio {
@@ -96,12 +90,9 @@ hr {
 
 .selected-menu:not(.logo):hover {
    color: rgb(40, 44, 46);
-   /* cursor: not-allowed; */
 }
 
 .logo {
-  /* background-color: purple; */
-   margin-right: 10%;
    padding-bottom: 0;
    width: auto;
    height: auto;
@@ -119,6 +110,8 @@ hr {
 }
 
 .show-time {
+  display: grid;
+  grid-template-columns: auto;
    background-color: white;
    width: 80%;
    height: 20%;
@@ -154,12 +147,10 @@ hr {
 }
 
 .left-bio {
-   /* background-color: red; */
    text-align: left;
 }
 
 .right-bio {
-   /* background-color: blue; */
    text-align: left;
 }
 
@@ -181,11 +172,6 @@ hr {
    display: grid;
    grid-template-columns: auto;
 }
-
-/* .grid-2 {
-   display: grid;
-   grid-template-columns: auto auto;
-} */
 
 .stats{
   width: 100%;
@@ -212,11 +198,11 @@ hr {
 }
 
 .url {
-   color: red;
+   color: rgb(105, 220, 255);
 }
 
 .url:hover {
-   color: blue;
+   color: rgb(0, 104, 135);
    text-decoration: underline;
    cursor: pointer;
 }

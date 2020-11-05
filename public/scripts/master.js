@@ -79,7 +79,7 @@ app.builder = (main,type,id,cn,text,html,src,href) => {
 
 app.home = () => {
    clearInterval(app.interval);
-   const header = [{main:'header',type:'div',cn:'show-time'},{main:'header>div',type:'h1',text:'Welcome to my Portfolio'},{main:'header>div',type:'h2',text:'My name is John and '},{main:'header>div>h2',type:'span',id:'enjoy',text:'I enjoy'},{main:'header',type:'div',id:'arrow-holder'},{main:'#arrow-holder',type:'img',id:'arrow',cn:'bye',src:'./public/images/arrow.png'}];
+   const header = [{main:'header',type:'div',cn:'show-time'},{main:'.show-time',type:'h1',text:'Welcome to my Portfolio'},{main:'.show-time',type:'h2',text:'My name is John and '},{main:'header>div>h2',type:'span',id:'enjoy',text:'I enjoy'},{main:'header',type:'div',id:'arrow-holder'},{main:'#arrow-holder',type:'img',id:'arrow',cn:'bye',src:'./public/images/arrow.png'}];
    const main = [{main:'main',type:'div',cn:'words'}];
    app.removeAll('header');
    app.removeAll('main');
@@ -151,6 +151,10 @@ app.projects = () => {
    app.urlLinks();
 }
 
+app.contact = () => {
+
+}
+
 app.arrowShow = () => {
    const arrow = document.querySelector('#arrow');
    arrow.classList.remove('bye')
@@ -195,21 +199,6 @@ app.loadNewStatement = (num) => {
    }
 }
 
-app.mobileMenu = () => {
-   if(document.querySelector('#menu')){
-      const menu = document.querySelector('#menu');
-      const area = document.querySelector('.mobile');
-      menu.addEventListener('mouseenter',(e) => {
-         console.log("removing none display");
-         area.style.display = 'block';
-      });
-      menu.addEventListener('mouseleave',() => {
-         console.log("adding none display");
-         area.style.display = 'none';
-      })
-   }
-}
-
 app.urlLinks = () => {
    if(document.querySelector('.url')){
       const urls = document.querySelectorAll('.url');
@@ -230,7 +219,7 @@ app.loadUp = (data) => {
 app.init = () => {
    app.menuButtons();
    app.home();
-   // app.bio();
+   // app.contact();
 }
 
 app.notSetup = () => {

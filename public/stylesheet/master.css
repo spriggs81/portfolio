@@ -9,8 +9,10 @@ header, main, footer {
 
 nav {
   /* background-color: green; */
-   margin: 0 10% 0 16.5%;
-   display: flex;
+   margin: 0 17% 0 16.5%;
+   display: grid;
+   grid-template-columns: 20% 80%;
+   grid-column-gap: 40%;
    height: 75px;
 }
 
@@ -41,6 +43,10 @@ nav>ul li:hover {
 header {
    text-align: center;
    margin-top: 3%;
+}
+
+hr {
+  width: 100%;
 }
 
 #arrow {
@@ -89,6 +95,13 @@ header {
    background-color: red;
 }
 
+#bio-stats {
+   display: grid;
+   grid-template-columns: 40% 60%;
+   margin-left: 4%;
+   text-transform: capitalize;
+   color: rgb(189, 189, 189);
+}
 
 .selected-menu:not(.logo) {
    color: rgb(41, 91, 138);
@@ -153,14 +166,6 @@ header {
    animation-iteration-count: infinite;
 }
 
-#bio-stats {
-   display: grid;
-   grid-template-columns: 40% 60%;
-   margin-left: 4%;
-   text-transform: capitalize;
-   color: rgb(189, 189, 189);
-}
-
 .left-bio {
    /* background-color: red; */
    text-align: left;
@@ -174,16 +179,6 @@ header {
 .right-bio:hover {
    animation: shake 0.5s;
    animation-iteration-count: infinite;
-}
-
-.credit-bio {
-   color: rgb(11, 66, 176);
-}
-
-.credit-bio:hover {
-   color: rgb(116, 160, 247);
-   border-bottom: 2.5px rgb(11, 66, 176) solid;
-   cursor: pointer;
 }
 
 .info-bio {
@@ -200,19 +195,54 @@ header {
    grid-template-columns: auto;
 }
 
-.grid-2 {
+/* .grid-2 {
    display: grid;
    grid-template-columns: auto auto;
-}
+} */
 
 .stats{
+  width: 100%;
+  height: auto;
   display: grid;
-  grid-template-columns: 40% 50%;
+  grid-template-columns: auto auto;
   grid-column-gap: 5%;
+}
+
+.project-place {
+   display: grid;
+   grid-template-columns: auto;
+   padding: 3% 2%;
+}
+
+.project-place p{
+   font-size: 1.1em;
+}
+
+.url-place {
+   display: grid;
+   grid-template-columns: auto auto;
+   grid-column-gap: 5%;
+}
+
+.url {
+   color: red;
+}
+
+.url:hover {
+   color: blue;
+   text-decoration: underline;
+   cursor: pointer;
 }
 
 .bye {
    display: none;
+}
+
+.lab {
+   color: rgb(107, 107, 107);
+   font-style: italic;
+   font-weight: bold;
+   font-size: 1.3em;
 }
 
 @keyframes shake {

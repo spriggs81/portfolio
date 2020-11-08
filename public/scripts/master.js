@@ -39,7 +39,7 @@ app.menuButtons = () => {
    }
 };
 
-app.builder = (main,type,id,cn,text,html,src,href) => {
+app.builder = (main,type,id,cn,text,html,src,href,dataName) => {
    main = typeof(main) == 'string' && main.length > 0 ? main : false;
    type = typeof(type) == 'string' && type.length > 0 ? type : false;
    if(main && type) {
@@ -49,6 +49,7 @@ app.builder = (main,type,id,cn,text,html,src,href) => {
       html = typeof(html) == 'string' && html.length > 0 ? html : false;
       src = typeof(src) == 'string' && src.length > 0 ? src : false;
       href = typeof(href) == 'string' && href.length > 0 ? href : false;
+      name = typeof(name) == 'string' && name.length > 0 ? name : false;
       if(document.querySelector(main)){
          const pagePart = document.querySelector(main);
          const part = document.createElement(type);
@@ -64,11 +65,19 @@ app.builder = (main,type,id,cn,text,html,src,href) => {
          if(html){
             part.innerHTML = html;
          }
-         if(src){
+         if(type == 'form'){
+            part.action = src;
+            part.method = href.toUpperCase();
+         }
+         if(src && type != 'form'){
             part.src = src;
          }
-         if(href){
+         if(href && type != 'form'){
             part.href = href;
+         }
+         if(dataName){
+           part.setAttribute(name, dataName);
+           console.log('well name works here!');
          }
          pagePart.appendChild(part);
       }
@@ -85,14 +94,13 @@ app.home = () => {
    app.removeAll('main');
    app.loadUp(header);
    app.loadUp(main);
-   document.querySelector('.show-time').classList.add('grid-1')
    app.findStatement();
 };
 
 app.bio = () => {
    const birthday = () => {const date = new Date;console.log(date);const rawAge = date.getFullYear() - 1981;const check = date.getMonth() + 1 > 9 || date.getMonth() + 1 == 9 && date.getDate() >= 29 ? 0 : 1;return String(rawAge - check);};
-   const stats = {name:'John Spriggs',age:birthday(),country:'United States',state:'California',cats_or_dogs:'dogs',employment_status:'unemployed - actively looking'};
-   const p1 = "My name is John Spriggs, and I used to be a Delivery Support Analyst for VizExplorer.  At VizExplorer, I communicated with clients holding high-level rankings within their organization about issues or questions with our software.  As an after-hours scheduled employee, I dealt with complex problems, mainly alone with no supervision, that required SQL, JavaScript, NodeJS, and systems OS knowledge to process.  After reviewing, reproducing, and researching these problems, I would correct the issue.  In instants of extensive changes to the application/software or the scope is outside of the teams' area of expertise. I would provide detailed information from my research, the place I believe the problem(s)' located, suggestions on how I think the issue should be resolved, and escalate to the correct department to review."
+   const stats = {name:'John Spriggs',age:birthday(),state:'California',country:'United States',cats_or_dogs:'dogs'};
+   const p1 = "My name is John Spriggs, and I used to be a Delivery Support Analyst for VizExplorer.  At VizExplorer, I communicated with clients holding high-level rankings within their organization about issues or questions with our software.  As an after-hours scheduled employee, I dealt with complex problems, mainly alone with no supervision, that required SQL, JavaScript, NodeJS, and systems OS knowledge to process.  After reviewing, reproducing, and researching these problems, I would correct the issue.  In instants of extensive changes to the application/software or the required work was outside of the teams' area of expertise. I would provide detailed information from my research, the place I believe the problem(s)' located, suggestions on how I think the issue should be resolved, and escalate to the correct department to review."
    const p2 = "I have always enjoyed learning new and challenging skills, especially skill technically related.  Learning Nodejs, JavaScript, and HTML5/CSS3 (<span class='url'>https://accredible.com/16045116</span>) has been challenging, but creating new apps or figuring out errors or problems without using google searches has been fun and inspiring.  If I'm not in front of a computer, you can find me with my wonderful family, spending time with my 2-year-old son, or laughing with my beautiful spouse.  I believe that you should treat people as you would like to be treated, which goes a long way once applied to the customer service you provide."
    const header = [{main:'header',type:'div',id:'header-bio'},{main:'header>div',type:'img',cn:'my-bio-pic',src:'./public/images/myimage.jpg'},{main:'header>div',type:'div',id:'bio-stats'}];
    const main = [{main:'main',type:'div',cn:'info-bio'},{main:'main>div',type:'p',text:p1},{main:'main>div',type:'p',html:p2}];
@@ -112,7 +120,7 @@ app.bio = () => {
 };
 
 app.projects = () => {
-   const projects = [{title:'PM2-Watcher',app_type:'NPM Node Module',app_tech:'NodeJS, ExpressJS, Pm2, JavaScript, HTML5 & CSS3',problem:"Pm2 didn't send out automatic notifications unless part of a plan that could get costly. If someone wasn't watching the server, they could miss issues that could affect the application's stability.  In some cases, the client may not notice a minor problem that could lead to a critical one.",solution:"This application monitors all pm2 processes and will send out an email notification if a process goes offline.  If a process recovers, then a follow-up email is sent out.",app:'https://www.npmjs.com/package/pm2-watcher',github:'https://github.com/spriggs81/pm2-watcher'},{title:'Error Logs',app_type:'Web Application',app_tech:'NodeJS, ExpressJS, EJS, Event-Stream, SQL-Formatter, Bootstrap 4.3.1',problem:"When researching a client related issue, the log files could explain 85% of the client's problem. Due to the problematic display, it could be easy for someone to overlook essential data related to the client's situation.",solution:"Creating the app was meant to make the logs more readable and less intimidating.  Allowing the support team to be able to resolve issues in a more timely manner.",app:'https://error-logs.herokuapp.com/',github:'https://github.com/spriggs81/error_logs'},{title:'Support Tool',app_type:'web application',app_tech:'NodeJS, ExpressJS, PassportJS, MongoDB, MongooseJS, EJS, and Semantic UI',problem:"In my department(Support), we depended on information from a site controlled by another department.  Sometimes this information was out of date, incorrect, misleading, or missing necessary steps.  It reached the point that team members were sharing notes that had on clients.",solution:"Creating the app was meant to be a one-stop site to pick up information for our team.  Allowing the content to be updated without delays and a place to keep important information.  (Please note, I updated the  app to be more general as it was made for specific products originally.)",app:'http://supporttools.ga',github:'https://github.com/spriggs81/portfolio'}];
+   const projects = [{title:'PM2-Watcher',app_type:'NPM Node Module',app_tech:'NodeJS, ExpressJS, Pm2, JavaScript, HTML5 & CSS3',problem:"Pm2 didn't send out automatic notifications unless part of a plan that could get costly. If someone wasn't watching the server, they could miss issues that could affect the application's stability.  In some cases, the client may not notice a minor problem that could lead to a critical one.",solution:"This application monitors all pm2 processes and will send out an email notification if a process goes offline.  If a process recovers, then a follow-up email is sent out.",app:'https://www.npmjs.com/package/pm2-watcher',github:'https://www.github.com/spriggs81/pm2-watcher'},{title:'Error Logs',app_type:'Web Application',app_tech:'NodeJS, ExpressJS, EJS, Event-Stream, SQL-Formatter, Bootstrap 4.3.1',problem:"When researching a client related issue, the log files could explain 85% of the client's problem. Due to the problematic display, it could be easy for someone to overlook essential data related to the client's situation.",solution:"Creating the app was meant to make the logs more readable and less intimidating.  Allowing the support team to be able to resolve issues in a more timely manner.",app:'https://error-logs.herokuapp.com/',github:'https://www.github.com/spriggs81/error_logs'},{title:'Support Tool',app_type:'web application',app_tech:'NodeJS, ExpressJS, PassportJS, MongoDB, MongooseJS, EJS, and Semantic UI',problem:"In my department(Support), we depended on information from a site controlled by another department.  Sometimes this information was out of date, incorrect, misleading, or missing necessary steps.  It reached the point that team members were sharing notes that had on clients.",solution:"Creating the app was meant to be a one-stop site to pick up information for our team.  Allowing the content to be updated without delays and a place to keep important information.  (Please note, I updated the  app to be more general as it was made for specific products originally.)",app:'http://www.supporttools.ga',github:'https://www.github.com/spriggs81/portfolio'}];
    const header = [];
    const main = [{main:'main',type:'div',id:'info-projects'}];
    app.removeAll('header');
@@ -124,8 +132,8 @@ app.projects = () => {
       const itemSpace = {main:'#info-projects',cn:'project-place',type:'div',id:'project'+count};
       const itemTitle = {main:'#project'+count,cn:'grid-1',type:'h1',text:project.title};
       const itemStatHolder = {main:'#project'+count,id:'statP'+count,cn:'stats',type:'section'};
-      const itemStat1 = {main:'#statP'+count,type:'p',id:'p'+count+'-stat1',cn:'stat-items',html:'<span class="lab">Project Type</span>: '+project.app_type};
-      const itemStat2 = {main:'#statP'+count,type:'p',id:'p'+count+'-stat2',cn:'stat-items',html:'<span class="lab">Project Tech</span>: '+project.app_tech};
+      const itemStat1 = {main:'#statP'+count,type:'p',id:'p'+count+'-stat1',cn:'stat-items',html:'<span class="lab">Project Type:</span>'+project.app_type};
+      const itemStat2 = {main:'#statP'+count,type:'p',id:'p'+count+'-stat2',cn:'stat-items',html:'<span class="lab">Project Tech:</span>'+project.app_tech};
       const itemProblem = {main:'#project'+count,cn:'grid-1',type:'p',html:'<span class="lab">The Problem:</span>\n'+project.problem};
       const itemSolution = {main:'#project'+count,cn:'grid-1',type:'p',html:'<span class="lab">The Solution:</span>\n'+project.solution};
       items.push(itemSpace,itemTitle,itemStatHolder,itemStat1,itemStat2,itemProblem,itemSolution);
@@ -152,7 +160,24 @@ app.projects = () => {
 }
 
 app.contact = () => {
-
+  const header = [{main:'header',type:'div',cn:'show-time'},{main:'.show-time',type:'h1',text:'Contact Info'},{main:'.show-time',type:'h2',text:'Here\'s how you can reach me: 😊'}];
+  const main = [{main:'main',type:'section',cn:'form-holder'},{main:'.form-holder',type:'form',cn:'contact-me',src:'https://docs.google.com/forms/u/0/d/e/1FAIpQLScWjUnWA7n02b816ytBz97wihG4y9AylgveXi4vfEI7XikZXA/formResponse?entry.279002257="Mike Smith"&entry.1036376505="Email@theemail.com"&entry.1924106833="This is a message"&entry.615291168="Developer"',href:'post'},{main:'.contact-me',type:'div',cn:'form-data'}];
+  const createFields = [{name:'title',type:'select',html:'<option value="">Select your option</option> <option value="Business Owner/Founder/Invester">Business Owner / Founder / Invester</option> <option value="Hiring Manager/Recruiter">Hiring Manager / Recruiter</option> <option value="Upper Management/Department Manager">Upper Management / Department Manager</option> <option value="Developer">Developer</option> <option value="Other">Other</option>',fieldName:'entry.615291168'},{name:'name',type:'input',dataName:'',fieldName:'entry.279002257'},{name:'email',type:'input',dataName:'',fieldName:'entry.1036376505'},{name:'msg',type:'input',dataName:'',fieldName:'entry.1924106833'}];
+  const formFeidls = [];
+  for(field of createFields){
+    const labelName = field.name != 'msg' ? field.name : 'message';
+    const div = {main:'.form-data',type:'div',cn:field.name+'-data-field'};
+    const label = {main:'.'+field.name+'-data-field',type:'label',text:labelName+': '};
+    const data = {main:'.'+field.name+'-data-field',type:field.type,html:field.html,dataName:field.fieldName};
+    formFeidls.push(div,label,data);
+  }
+  app.removeAll('header');
+  app.removeAll('main');
+  app.loadUp(header);
+  app.loadUp(main);
+  const button = {main:'.form-data',type:'button',text:'Submit'}
+  formFeidls.push(button);
+  app.loadUp(formFeidls);
 }
 
 app.arrowShow = () => {

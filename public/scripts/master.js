@@ -241,7 +241,17 @@ app.submitButton = () => {
       const button = document.querySelector('.form-data button');
       button.addEventListener('click',(e) => {
          e.preventDefault();
-         const action = typeof(document.getElementById('contact-me').action.trim()) == 'string'  && document.getElementById('contact-me').action.trim().length > 0 ? document.getElementById('contact-me').action.trim() : false;
+         if(document.getElementById('contact-me').action.trim()){
+            const action = typeof(document.getElementById('contact-me').action.trim()) == 'string'  && document.getElementById('contact-me').action.trim().length > 0 ? document.getElementById('contact-me').action.trim() : false;
+            if(document.getElementById('contact-me').method.trim()){
+
+            } else {
+               console.log("Missing the method from the form");
+            }
+         } else {
+            console.log("Missing the action for the form");
+         }
+
          const method = typeof(document.getElementById('contact-me').method.trim()) == 'string'  && document.getElementById('contact-me').method.trim().length > 0 ? document.getElementById('contact-me').method.trim() : false;
          const title = typeof(document.querySelector('#title-field>select').value.trim()) == 'string' && document.querySelector('#title-field>select').value.trim().length > 0 ? document.querySelector('#title-field>select').value.trim() : false;
          const name = typeof(document.querySelector('#name-field>select').value.trim()) == 'string' && document.querySelector('#name-field>select').value.trim().length > 0 ? document.querySelector('#name-field>select').value.trim() : false;

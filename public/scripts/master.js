@@ -49,7 +49,7 @@ app.builder = (main,type,id,cn,text,html,src,href,dataName) => {
       html = typeof(html) == 'string' && html.length > 0 ? html : false;
       src = typeof(src) == 'string' && src.length > 0 ? src : false;
       href = typeof(href) == 'string' && href.length > 0 ? href : false;
-      name = typeof(name) == 'string' && name.length > 0 ? name : false;
+      dataName = typeof(dataName) == 'string' && dataName.length > 0 ? dataName : false;
       if(document.querySelector(main)){
          const pagePart = document.querySelector(main);
          const part = document.createElement(type);
@@ -76,8 +76,7 @@ app.builder = (main,type,id,cn,text,html,src,href,dataName) => {
             part.href = href;
          }
          if(dataName){
-           part.setAttribute(name, dataName);
-           console.log('well name works here!');
+            part.name = dataName;
          }
          pagePart.appendChild(part);
       }
@@ -99,7 +98,7 @@ app.home = () => {
 
 app.bio = () => {
    const birthday = () => {const date = new Date;console.log(date);const rawAge = date.getFullYear() - 1981;const check = date.getMonth() + 1 > 9 || date.getMonth() + 1 == 9 && date.getDate() >= 29 ? 0 : 1;return String(rawAge - check);};
-   const stats = {name:'John Spriggs',age:birthday(),state:'California',country:'United States',cats_or_dogs:'dogs'};
+   const stats = {name:'John Spriggs',age:birthday(),county:'<span class="url">kern</span>',state:'California',country:'United States',cats_or_dogs:'dogs'};
    const p1 = "My name is John Spriggs, and I used to be a Delivery Support Analyst for VizExplorer.  At VizExplorer, I communicated with clients holding high-level rankings within their organization about issues or questions with our software.  As an after-hours scheduled employee, I dealt with complex problems, mainly alone with no supervision, that required SQL, JavaScript, NodeJS, and systems OS knowledge to process.  After reviewing, reproducing, and researching these problems, I would correct the issue.  In instants of extensive changes to the application/software or the required work was outside of the teams' area of expertise. I would provide detailed information from my research, the place I believe the problem(s)' located, suggestions on how I think the issue should be resolved, and escalate to the correct department to review."
    const p2 = "I have always enjoyed learning new and challenging skills, especially skill technically related.  Learning Nodejs, JavaScript, and HTML5/CSS3 (<span class='url'>https://accredible.com/16045116</span>) has been challenging, but creating new apps or figuring out errors or problems without using google searches has been fun and inspiring.  If I'm not in front of a computer, you can find me with my wonderful family, spending time with my 2-year-old son, or laughing with my beautiful spouse.  I believe that you should treat people as you would like to be treated, which goes a long way once applied to the customer service you provide."
    const header = [{main:'header',type:'div',id:'header-bio'},{main:'header>div',type:'img',cn:'my-bio-pic',src:'./public/images/myimage.jpg'},{main:'header>div',type:'div',id:'bio-stats'}];
@@ -110,7 +109,7 @@ app.bio = () => {
    app.loadUp(header);
    for(const statKey in stats){
       const data = {main:'#bio-stats',type:'div',cn:'left-bio',text:statKey.replace(/_/g,' ')+':'};
-      const data1 = {main:'#bio-stats',type:'div',cn:'right-bio',text:stats[statKey]};
+      const data1 = {main:'#bio-stats',type:'div',cn:'right-bio',html:stats[statKey]};
       displayStats.push(data);
       displayStats.push(data1);
    }
@@ -161,14 +160,14 @@ app.projects = () => {
 
 app.contact = () => {
   const header = [{main:'header',type:'div',cn:'show-time'},{main:'.show-time',type:'h1',text:'Contact Info'},{main:'.show-time',type:'h2',text:'Here\'s how you can reach me: 😊'}];
-  const main = [{main:'main',type:'section',cn:'form-holder'},{main:'.form-holder',type:'form',cn:'contact-me',src:'https://docs.google.com/forms/u/0/d/e/1FAIpQLScWjUnWA7n02b816ytBz97wihG4y9AylgveXi4vfEI7XikZXA/formResponse?entry.279002257="Mike Smith"&entry.1036376505="Email@theemail.com"&entry.1924106833="This is a message"&entry.615291168="Developer"',href:'post'},{main:'.contact-me',type:'div',cn:'form-data'}];
-  const createFields = [{name:'title',type:'select',html:'<option value="">Select your option</option> <option value="Business Owner/Founder/Invester">Business Owner / Founder / Invester</option> <option value="Hiring Manager/Recruiter">Hiring Manager / Recruiter</option> <option value="Upper Management/Department Manager">Upper Management / Department Manager</option> <option value="Developer">Developer</option> <option value="Other">Other</option>',fieldName:'entry.615291168'},{name:'name',type:'input',dataName:'',fieldName:'entry.279002257'},{name:'email',type:'input',dataName:'',fieldName:'entry.1036376505'},{name:'msg',type:'input',dataName:'',fieldName:'entry.1924106833'}];
+  const main = [{main:'main',type:'section',cn:'form-holder'},{main:'.form-holder',type:'form',id:'contact-me',src:'https://docs.google.com/forms/u/0/d/e/1FAIpQLScWjUnWA7n02b816ytBz97wihG4y9AylgveXi4vfEI7XikZXA/formResponse',href:'post'},{main:'#contact-me',type:'div',cn:'form-data'}];
+  const createFields = [{name:'title',type:'select',html:'<option value="">Select your option</option> <option value="Business Owner/Founder/Invester">Business Owner / Founder / Invester</option> <option value="Hiring Manager/Recruiter">Hiring Manager / Recruiter</option> <option value="Upper Management/Department Manager">Upper Management / Department Manager</option> <option value="Developer">Developer</option> <option value="Other">Other</option>',fieldName:'entry.615291168'},{name:'name',type:'input',dataName:'',fieldName:'entry.279002257'},{name:'email',type:'input',dataName:'',fieldName:'entry.1036376505'},{name:'msg',type:'textArea',dataName:'',fieldName:'entry.1924106833'}];
   const formFeidls = [];
   for(field of createFields){
     const labelName = field.name != 'msg' ? field.name : 'message';
-    const div = {main:'.form-data',type:'div',cn:field.name+'-data-field'};
-    const label = {main:'.'+field.name+'-data-field',type:'label',text:labelName+': '};
-    const data = {main:'.'+field.name+'-data-field',type:field.type,html:field.html,dataName:field.fieldName};
+    const div = {main:'.form-data',type:'div',cn:'data-field',id:field.name+'-field'};
+    const label = {main:'#'+field.name+'-field',type:'label',text:labelName+': '};
+    const data = {main:'#'+field.name+'-field',type:field.type,html:field.html,dataName:field.fieldName};
     formFeidls.push(div,label,data);
   }
   app.removeAll('header');
@@ -178,6 +177,7 @@ app.contact = () => {
   const button = {main:'.form-data',type:'button',text:'Submit'}
   formFeidls.push(button);
   app.loadUp(formFeidls);
+  app.submitButton();
 }
 
 app.arrowShow = () => {
@@ -229,22 +229,70 @@ app.urlLinks = () => {
       const urls = document.querySelectorAll('.url');
       for(link of urls){
          link.addEventListener('click',(e) => {
-            window.open(e.target.innerText);
+            const placesToBe = e.target.innerText.toLowerCase() == 'kern' ? 'https://en.wikipedia.org/wiki/Kern_County,_California' : e.target.innerText;
+            window.open(placesToBe);
          });
       }
    }
 }
 
-app.loadUp = (data) => {
-   for(load of data){
-      app.builder(load.main,load.type,load.id,load.cn,load.text,load.html,load.src,load.href);
+app.submitButton = () => {
+   if(document.querySelector('.form-data button')){
+      const button = document.querySelector('.form-data button');
+      button.addEventListener('click',(e) => {
+         e.preventDefault();
+         const action = typeof(document.getElementById('contact-me').action.trim()) == 'string'  && document.getElementById('contact-me').action.trim().length > 0 ? document.getElementById('contact-me').action.trim() : false;
+         const method = typeof(document.getElementById('contact-me').method.trim()) == 'string'  && document.getElementById('contact-me').method.trim().length > 0 ? document.getElementById('contact-me').method.trim() : false;
+         const title = typeof(document.querySelector('#title-field>select').value.trim()) == 'string' && document.querySelector('#title-field>select').value.trim().length > 0 ? document.querySelector('#title-field>select').value.trim() : false;
+         const name = typeof(document.querySelector('#name-field>select').value.trim()) == 'string' && document.querySelector('#name-field>select').value.trim().length > 0 ? document.querySelector('#name-field>select').value.trim() : false;
+         const email = typeof(document.querySelector('#email-field>select').value.trim()) == 'string' && document.querySelector('#email-field>select').value.trim().length > 0 ? document.querySelector('#email-field>select').value.trim() : false;
+         const msg = typeof(document.querySelector('#msg-field>select').value.trim()) == 'string' && document.querySelector('#msg-field>select').value.trim().length > 0 ? document.querySelector('#msg-field>select').value.trim() : false;
+         if(action && method && title && name && email && msg){
+            const data = {
+               entry_615291168: title,
+               entry_279002257: name,
+               entry_1036376505:  email,
+               entry_1924106833: msg
+            };
+         } else {
+            console.log("No you didn't");
+         }
+      });
    }
 };
 
+app.loadUp = (data) => {
+   for(load of data){
+      app.builder(load.main,load.type,load.id,load.cn,load.text,load.html,load.src,load.href,load.dataName);
+   }
+};
+
+app.sendThis = (action,method,data) => {
+   const xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = () => {
+      if (this.readyState == 4 && this.status == 200) {
+         console.log("Made it!");
+      } else {
+         console.log("We still having problems");
+      }
+  };
+  let urlLink = action+'?';
+  let count = 0;
+  for(dataKey in data){
+     count++
+     if(count > 1){
+        urlLink += '&';
+     }
+     urlLink += dataKey+':'+data[dataKey]
+ }
+  xhttp.open(method, urlLink, true);
+  xhttp.send();
+}
+
 app.init = () => {
    app.menuButtons();
-   app.home();
-   // app.contact();
+   // app.home();
+   app.contact();
 }
 
 app.notSetup = () => {

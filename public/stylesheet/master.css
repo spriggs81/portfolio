@@ -54,6 +54,10 @@ iframe {
   height: 1000px;
 }
 
+main>section {
+   margin: auto 5em;;
+}
+
 #arrow {
    width: 50px;
    height: auto;
@@ -178,12 +182,12 @@ iframe {
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: auto auto;
   grid-column-gap: 5%;
 }
 
-.stat-items .lab {
-  margin-right: 1.5%;
+.stats>.stat-items>.lab {
+   margin-right: .5em;
 }
 
 .project-place {
@@ -221,6 +225,62 @@ iframe {
    font-style: italic;
    font-weight: bold;
    font-size: 1.3em;
+}
+
+.form-data {
+   margin: 5% auto;
+   font-size: 1.7em;
+   align-items: center;
+}
+
+.form-data .data-field {
+   display: grid;
+   grid-template-columns: 10% auto;
+   grid-column-gap: 20px;
+   margin-bottom: 2%;
+}
+
+.form-data input {
+   margin-left: 5em;
+   width: auto;
+   height:2em;
+   font-size: .6em;
+   border: 2px black solid;
+   border-radius: 5px;
+}
+
+.form-data select {
+   margin-left: 5em;
+   width: auto;
+   height: 2em;
+   font-size: .6em;
+   padding-left: 1.2em;
+   border: 2px black solid;
+   border-radius: 5px;
+}
+
+.form-data textArea {
+   margin-left: 6em;
+   width: auto;
+   height:10em;
+   font-size: .6em;
+   border: 2px black solid;
+   border-radius: 5px;
+   resize: vertical;
+}
+
+.form-data button {
+   background-color: green;
+   display: block;
+   color: white;
+   width: 150px;
+   height: 30px;
+   align-items: center;
+   margin: 5% 50%;
+}
+
+.form-data label {
+   text-transform: capitalize;
 }
 
 @keyframes shake {

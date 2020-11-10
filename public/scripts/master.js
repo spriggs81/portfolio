@@ -241,31 +241,35 @@ app.submitButton = () => {
       const button = document.querySelector('.form-data button');
       button.addEventListener('click',(e) => {
          e.preventDefault();
-         if(document.getElementById('contact-me').action.trim()){
+         if(document.getElementById('contact-me')){
             const action = typeof(document.getElementById('contact-me').action.trim()) == 'string'  && document.getElementById('contact-me').action.trim().length > 0 ? document.getElementById('contact-me').action.trim() : false;
-            if(document.getElementById('contact-me').method.trim()){
-
+            const method = typeof(document.getElementById('contact-me').method.trim()) == 'string'  && document.getElementById('contact-me').method.trim().length > 0 ? document.getElementById('contact-me').method.trim() : false;
+            const title = typeof(document.querySelector('#title-field>select').value.trim()) == 'string' && document.querySelector('#title-field>select').value != null ? document.querySelector('#title-field>select').value.trim() : false;
+            const name = document.querySelector('#name-field>input').value != null && typeof(document.querySelector('#name-field>input').value.trim()) == 'string' ? document.querySelector('#name-field>input').value.trim() : false;
+            const email = typeof(document.querySelector('#email-field>input').value.trim()) == 'string' && document.querySelector('#email-field>input').value != null ? document.querySelector('#email-field>input').value.trim() : false;
+            const msg = typeof(document.querySelector('#msg-field>textArea').value.trim()) == 'string' && document.querySelector('#msg-field>textArea').value != null ? document.querySelector('#msg-field>textArea').value.trim() : false;
+            if(action && method && title && name && email && msg){
+              const data = {
+                entry_615291168: title,
+                entry_279002257: name,
+                entry_1036376505:  email,
+                entry_1924106833: msg
+              };
+              app.sendThis(action,method,data,(err,status) => {
+                if(!err && status == 200){
+                  console.log("This made it out sir.");
+                } else {
+                  console.log("Error sending this, please review status code: ",status);
+                }
+              })
             } else {
-               console.log("Missing the method from the form");
+              let problem = 'Just in case you miss this:\n';
+              if(!title){problem += "Title - Needed to be sent\n"}
+              if(!name){problem += "Name - Needed to be sent\n"}
+              if(!email){problem += "Email - Needed to be sent\n"}
+              if(!msg){problem += "Message - Needed to be sent\n"}
+               alert(problem);
             }
-         } else {
-            console.log("Missing the action for the form");
-         }
-
-         const method = typeof(document.getElementById('contact-me').method.trim()) == 'string'  && document.getElementById('contact-me').method.trim().length > 0 ? document.getElementById('contact-me').method.trim() : false;
-         const title = typeof(document.querySelector('#title-field>select').value.trim()) == 'string' && document.querySelector('#title-field>select').value.trim().length > 0 ? document.querySelector('#title-field>select').value.trim() : false;
-         const name = typeof(document.querySelector('#name-field>select').value.trim()) == 'string' && document.querySelector('#name-field>select').value.trim().length > 0 ? document.querySelector('#name-field>select').value.trim() : false;
-         const email = typeof(document.querySelector('#email-field>select').value.trim()) == 'string' && document.querySelector('#email-field>select').value.trim().length > 0 ? document.querySelector('#email-field>select').value.trim() : false;
-         const msg = typeof(document.querySelector('#msg-field>select').value.trim()) == 'string' && document.querySelector('#msg-field>select').value.trim().length > 0 ? document.querySelector('#msg-field>select').value.trim() : false;
-         if(action && method && title && name && email && msg){
-            const data = {
-               entry_615291168: title,
-               entry_279002257: name,
-               entry_1036376505:  email,
-               entry_1924106833: msg
-            };
-         } else {
-            console.log("No you didn't");
          }
       });
    }
@@ -277,14 +281,15 @@ app.loadUp = (data) => {
    }
 };
 
-app.sendThis = (action,method,data) => {
+app.sendThis = (action,method,data,cb) => {
    const xhttp = new XMLHttpRequest();
-   xhttp.onreadystatechange = () => {
+   xhttp.onreadystatechange = (e) => {
       if (this.readyState == 4 && this.status == 200) {
-         console.log("Made it!");
+         cb(false,200);
       } else {
-         console.log("We still having problems");
+         cb(true,this.status+'  /  '+this.readyState);
       }
+      console.log('this is E: ',e);
   };
   let urlLink = action+'?';
   let count = 0;
@@ -293,7 +298,7 @@ app.sendThis = (action,method,data) => {
      if(count > 1){
         urlLink += '&';
      }
-     urlLink += dataKey+':'+data[dataKey]
+     urlLink += dataKey.replace('_','.')+':'+data[dataKey]
  }
   xhttp.open(method, urlLink, true);
   xhttp.send();

@@ -18,7 +18,7 @@ app.removeAll = (place) => {
 }
 
 app.head = () => {
-   const head = [{main:'head',type:'meta',setAtt:{charset:'utf-8'}},{main:'head',type:'title'},{main:'head',type:'link',href:'./public/stylesheet/master.css',setAtt:{rel:'stylesheet'}},{main:'head',href:'./public/images/favicon.ico',setAtt:{rel:'shortcut icon'}},{main:'head',href:'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap',setAtt:{rel:'stylesheet'}}];
+   const head = [{main:'head',type:'meta',setAtt:{charset:'utf-8'}},{main:'head',type:'title'},{main:'head',type:'link',href:'./public/stylesheet/master.css',setAtt:{rel:'stylesheet'}},{main:'head',type:'link',href:'./public/stylesheet/game.css',setAtt:{rel:'stylesheet'}},{main:'head',href:'./public/images/favicon.ico',setAtt:{rel:'shortcut icon'}},{main:'head',href:'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap',setAtt:{rel:'stylesheet'}}];
    app.loadUp(head);
 }
 
@@ -32,7 +32,7 @@ app.renameTitle = (page) => {
 
 app.navBar = () => {
    const navBar = [{main:'nav',type:'div',cn:'logo'},{main:'.logo',type:'img',src:'./public/images/logo.gif',setAtt:{alt:'picutre of me'}},{main:'nav',type:'ul'}];
-   const createItems = ['bio','projects','contact'];
+   const createItems = ['bio','projects','vs','contact'];
    const menuItems = [];
    for(const item of createItems){
       const menu = {main:'nav ul',type:'li',text:item};
@@ -201,6 +201,12 @@ app.projects = () => {
    app.loadUp(items);
    app.footer('Projects Page');
    app.urlLinks();
+}
+
+app.vs = () => {
+   app.removeAll('header');
+   app.removeAll('main');
+   game.init();
 }
 
 app.contact = () => {

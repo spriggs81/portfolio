@@ -1,0 +1,177 @@
+*,*::after,*::before {
+   box-sizing: border-box;
+}
+:root {
+   --box-size: 80px;
+   --mark-size: calc(var(--box-size) * .5);
+}
+
+
+ .main {
+   width: auto;
+   height: auto;
+   display: grid;
+   justify-content: center;
+   align-content: center;
+   justify-items: center;
+   align-items: center;
+   grid-template-columns: repeat(3,auto);
+}
+
+.boardSet {
+   width: var(--box-size);
+   height: var(--box-size);
+   background-color: rgb(242, 242, 242);
+   border: 3px solid rgb(232, 232, 232);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   cursor: pointer;
+}
+
+.boardSet:first-child,
+.boardSet:nth-child(2),
+.boardSet:nth-child(3) {
+   border-top: none;
+}
+
+.boardSet:nth-child(3n + 1) {
+   border-left: none;
+}
+
+.boardSet:nth-child(3n + 3) {
+   border-right: none;
+}
+
+.boardSet:nth-child(9),
+.boardSet:nth-child(8),
+.boardSet:nth-child(7) {
+   border-bottom: none;
+}
+
+.boardSet.x,
+.boardSet.cir {
+   cursor: not-allowed;
+}
+
+.boardSet.x::before,
+.boardSet.x::after {
+    background-color: red;
+}
+
+ .boardSet.cir::before {
+   background-color: black;
+}
+
+.main.x .boardSet:not(.x):not(.cir):hover::before,
+.main.x .boardSet:not(.x):not(.cir):hover::after,
+.main.cir .boardSet:not(.x):not(.cir):hover::before {
+   background-color: lightgray;
+}
+
+.boardSet.x::before,
+.boardSet.x::after,
+.main.x .boardSet:not(.x):not(.cir):hover::before,
+.main.x .boardSet:not(.x):not(.cir):hover::after {
+   content: '';
+   position: absolute;
+   width: calc(var(--mark-size) * .15);
+   height: var(--mark-size);
+}
+
+.boardSet.x::before,
+.main.x .boardSet:not(.x):not(.cir):hover::before {
+   transform: rotate(45deg);
+}
+
+.boardSet.x::after,
+.main.x .boardSet:not(.x):not(.cir):hover::after {
+   transform: rotate(-45deg);
+}
+
+
+.boardSet.cir::before,
+.boardSet.cir::after,
+.main.cir .boardSet:not(.x):not(.cir):hover::before,
+.main.cir .boardSet:not(.x):not(.cir):hover::after {
+   content: '';
+   position: absolute;
+   border-radius: 50%;
+}
+
+.boardSet.cir::before,
+.main.cir .boardSet:not(.x):not(.cir):hover::before {
+   width: var(--mark-size);
+   height: var(--mark-size);
+}
+
+.boardSet.cir::after,
+.main.cir .boardSet:not(.x):not(.cir):hover::after {
+   width: calc(var(--mark-size) * .70);
+   height: calc(var(--mark-size) * .70);
+   background-color: white;
+}
+
+#message {
+   display: none;
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-color: rgb(0,0,0, .9);
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   color: white;
+   font-size: 6rem;
+   flex-direction: column;
+}
+
+#message button {
+   font-size: 4rem;
+   background-color: white;
+   border: 2px solid black
+   padding: .25em .5em;
+   cursor: pointer;
+}
+
+#message button:hover {
+   background-color: black;
+   color: white;
+   border-color: white;
+}
+
+#message.show {
+   display: flex
+}
+
+#display {
+   display: flex;
+   margin-top: 2.3%;
+   justify-content: center;
+   align-content: center;
+   justify-items: center;
+   align-items: center;
+}
+
+ #display>div {
+   margin: 1% 3%;
+}
+
+#me {
+   text-align: center;
+   align-items: center;
+   align-content: center;
+}
+
+#game-display .game-title {
+   font-size: 2.3em
+}
+
+#game-display .game-message {
+   font-size: 1.5em;
+   padding-top: 10px;
+   height: 65px;
+}

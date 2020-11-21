@@ -26,13 +26,15 @@ game.restartGame = () => {
       const message = document.getElementById('message');
       message.classList.remove('show');
       game.startGame();
-      setTimeout(() => {
-         if(document.querySelector('#game-display')){
-            const message = document.querySelector('#game-display .game-message');
-            message.innerText = '';
-            message.innerText = 'You VS Me (Well My Logic, Really!)'
-         }
-      },5000);
+      if(document.querySelector('#game-display .game-message').innerText != 'You VS Me'){
+         setTimeout(() => {
+            if(document.querySelector('#game-display')){
+               const message = document.querySelector('#game-display .game-message');
+               message.innerText = '';
+               message.innerText = 'You VS Me!'
+            }
+         },10000);
+      }
    }
 };
 
@@ -120,7 +122,7 @@ game.changeTurns = ()=>{
 }
 
 game.display = () => {
-   const header = [{main:'header',type:'div',id:'game-display',cn:'show-time'},{main:'#game-display',type:'div',cn:'game-title',text:'Tic-Tac-Toe'},{main:'#game-display',type:'div',cn:'game-message',text:'You VS Me (well my logic, really)'}];
+   const header = [{main:'header',type:'div',id:'game-display',cn:'show-time'},{main:'#game-display',type:'div',cn:'game-title',text:'Tic-Tac-Toe'},{main:'#game-display',type:'div',cn:'game-message',text:'You VS Me'}];
    const display = [{main:'main',type:'div',id:'display'},{main:'#display',type:'div',id:'user'},{main:'#display',type:'div',id:'board'},{main:'#display',type:'div',id:'me'},{main:'#board',type:'div',id:'main-body',cn:'main'}];
    const createBoard = ['tFirst','tSecond','tThrid','mFirst','mSecond','mThird','bFirst','bSecond','bThird'];
    const fillBoard = [];
@@ -130,13 +132,15 @@ game.display = () => {
    }
    const resetButt = [{main:'#main-body',type:'div',id:'message'},{main:'#message',type:'div',id:'winner'},{main:'#message',type:'button',text:'Restart',id:'restart'}];
    const player = [{main:'#user',type:'div',cn:'game-title'},{main:'#user .game-title',type:'h3',text:'You'},{main:'#user',type:'h1',text: '0',cn:'score'}];
-   const me = [{main:'#me',type:'div',cn:'game-title'},{main:'#me .game-title',type:'h3',text:'John\'s Logic'},{main:'#me .game-title',type:'h1',text: '0',cn:'score'}];
+   const me = [{main:'#me',type:'div',cn:'game-title'},{main:'#me .game-title',type:'h3',text:'I Play To Win'},{main:'#me .game-title',type:'h1',text: '0',cn:'score'}];
    app.loadUp(header);
    app.loadUp(display);
    app.loadUp(fillBoard);
    app.loadUp(resetButt);
    app.loadUp(player);
    app.loadUp(me);
+   app.renameTitle('Game Page');
+   app.footer('Game Page');
 }
 
 game.init = () => {

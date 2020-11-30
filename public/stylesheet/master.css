@@ -1,17 +1,14 @@
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: auto;
    background-color: white;
    color: black;
    font-family: 'Roboto', sans-serif;
 }
 
-body>div {
+.page-container {
    min-height: 100%;
    margin: 0 10%;
-}
-
-header, main, footer {
 }
 
 nav {
@@ -20,12 +17,16 @@ nav {
    height: 75px;
 }
 
+nav>div:last-child {
+   background-color: green;
+}
+
 nav>ul {
   margin-right: 20%;
   width: inherit%;
    display: grid;
    width: auto;
-  grid-template-columns: max-content max-content max-content max-content;
+  grid-template-columns: max-content max-content max-content max-content max-content;
   grid-column-gap: 7%;
 
 }
@@ -35,10 +36,10 @@ nav>ul>li {
    list-style-type: none;
    font-weight: bold;
    color: rgb(94, 191, 247);
-   font-size: 1.3em;
+   font-size: 1.4em;
 }
 
-nav>ul li:hover {
+nav>ul>li:hover {
    color: rgb(0, 139, 219);
    cursor: pointer;
 }
@@ -128,7 +129,7 @@ footer {
   display: grid;
   grid-template-columns: auto;
    background-color: white;
-   width: 80%;
+   width: 90%;
    height: 20%;
    margin: 0 auto;
    border: 3px black solid;
@@ -253,8 +254,8 @@ footer {
 
 .form-data input {
    margin-left: 5em;
-   width: auto;
-   height:2em;
+   width: 85%;
+   height: 2em;
    font-size: .6em;
    border: 2px black solid;
    border-radius: 5px;
@@ -262,7 +263,7 @@ footer {
 
 .form-data select {
    margin-left: 5em;
-   width: auto;
+   width: 85%;
    height: 2em;
    font-size: .6em;
    padding-left: 1.2em;
@@ -272,7 +273,7 @@ footer {
 
 .form-data textArea {
    margin-left: 6em;
-   width: auto;
+   width: 85%;
    height:10em;
    font-size: .6em;
    border: 2px black solid;
@@ -310,6 +311,71 @@ footer {
 
 .footer-holder .middle {
    font-size: 1.1em;
+}
+
+.skill-main {
+   font-size: 3em;
+   border-bottom: 2px black solid;
+   padding-bottom: .4em;
+   font-weight: bold;
+}
+
+.skill-holder {
+   display: grid;
+   grid-template-columns: max-content auto;
+   grid-column-gap: 1px;
+   width: 100%;
+}
+
+.skill-holder:not(:last-child) {
+   border-bottom: 2px black solid;
+   padding: .5em .5em 1em .5em;
+   margin: 1em auto 1.5em auto;
+}
+
+.skill-holder:last-child {
+   margin-bottom: auto;
+}
+
+.skill-title {
+   font-size: 1.4em;
+   text-transform: capitalize;
+   margin: auto 0;
+   padding-right: .5em;
+   border-right: 1.5px black solid;
+   color: rgb(30, 30, 252);
+   opacity: .4;
+}
+
+.skill-list {
+   list-style-type: none;
+   font-size: 1.05em;
+   padding-left: .5em;
+   flex-wrap: wrap;
+   display: flex;
+
+}
+.skills-holder ul li {
+   padding: 5px 10px;
+   margin: 1px;
+   color: rgb(30, 30, 252);
+   font-style: italic;
+}
+
+.dark-button {
+   position: absolute;
+   left: 10px;
+   text-transform: capitalize;
+   font-style: italic;
+   padding: 2px;
+   font-size: .8em;
+   font-weight: 500;
+}
+
+.dark-button:hover {
+   color: lightgray;
+   border-bottom: 1px lightgray solid;
+   cursor: pointer;
 }
 
 @keyframes shake {

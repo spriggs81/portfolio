@@ -83,14 +83,10 @@ cpu.pickMove = (openSpots, otherPlayerPlace) => {
 cpu.checkPlayerPossibleWin = (openSpots, playerPlace) => {
    const prob = ['tSecond', 'mThird', 'bSecond'];
    if (playerPlace.length == 1) {
-      console.log("it's me");
       for (problem of prob) {
-         console.log("it's me agin\n\t", problem);
 
          if (playerPlace.indexOf(problem) > -1) {
-            console.log("it's me again agin");
             const answer = problem == 'bSecond' ? 'bThird' : 'tThird';
-            console.log(answer);
             return answer;
          }
       }
@@ -108,7 +104,6 @@ cpu.checkPlayerPossibleWin = (openSpots, playerPlace) => {
             take = cell;
          }
          if (i == 2 && j == 1) {
-            console.log('still here');
             return take;
          }
       }

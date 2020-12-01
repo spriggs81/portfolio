@@ -73,7 +73,7 @@ part.navBar = () => {
 }
 
 part.footer = (page) => {
-   const lastDate = Date.parse('11/28/2020');
+   const lastDate = Date.parse('12/01/2020');
    const date = 1;
    const days = Math.floor(((((Date.now() - lastDate) / 1000) / 60) / 60) / 24);
    const footer = [{

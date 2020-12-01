@@ -159,15 +159,12 @@ page.skills = () => {
       createdSkill.push(div);
       createdSkill.push(divSkill);
       createdSkill.push(skillUl);
-      let count = 0;
       for (skill of skills[skillSet]) {
-         count++
          const skillInfo = {
             main: '#' + skillSet + '-skills>ul',
             type: 'li',
             text: skill
          };
-         console.log(count);
          createdSkill.push(skillInfo);
       }
    }

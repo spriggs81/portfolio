@@ -89,7 +89,6 @@ game.checkWin = (thisMark) => {
       let i = 0;
       for (cell of groups) {
          const cellSet = document.getElementById(cell);
-         console.log(cellSet);
          if (cellSet.classList[1] == thisMark) {
             i++
             if (i == 3) {

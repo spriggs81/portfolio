@@ -64,7 +64,7 @@ part.navBar = () => {
       const menu = {
          main: 'nav ul',
          type: 'li',
-         text: item
+         html: '<span>'+item+'</span>'
       };
       menuItems.push(menu);
    }
@@ -73,9 +73,10 @@ part.navBar = () => {
 }
 
 part.footer = (page) => {
-   const lastDate = Date.parse('12/01/2020');
+   const lastDate = Date.parse('12/08/2020');
    const date = 1;
    const days = Math.floor(((((Date.now() - lastDate) / 1000) / 60) / 60) / 24);
+   const ending = days > 0 ? days + ' days ago' : 'Today';
    const footer = [{
       main: 'footer',
       type: 'hr'
@@ -92,12 +93,12 @@ part.footer = (page) => {
       main: '.footer-holder',
       type: 'span',
       cn: 'middle',
-      html: '<span class="url">linkedin</span> || <span class="url">github</span>'
+      html: '<img id="linkedin" class="url" src="./public/images/LI-Logo.png"/><span class="slide"> || </span><img id="github" class="url" src="./public/images/GitHub_Logo.png" />'
    }, {
       main: '.footer-holder',
       type: 'span',
       cn: 'right-side',
-      text: 'Last Updated ' + days + ' days ago'
+      text: 'Last Updated: ' + ending
    }];
    app.removeAll('footer');
    app.loadUp(footer)

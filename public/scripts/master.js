@@ -1,7 +1,7 @@
 let submitted = false;
 const app = {};
 app.body = document.querySelector('body');
-app.statements = ["playing with my son", "spending time with my family", "helping people", "backend coding", "learning new skills", "reading through logs", "locating answers to problems", "creating new web apps", "barbequing on the charcoal grill", "playing challenging PS4 games", "researching complex issues", "being challenged", "hands-on training", "resolving an unknown internal issue"]
+app.statements = ["helping people", "spending time with my family", "backend coding", "learning new skills", "reading through logs", "playing with my son", "locating answers to problems", "creating new web apps", "barbequing", "researching complex issues", "being challenged", "challenging video games", "hands-on training", "resolving an unknown internal issue",'handling tasks other think too hard or tedious'];
 
 app.removeClass = (arry, classname) => {
    for (menu of arry) {
@@ -105,7 +105,7 @@ app.arrowShow = () => {
    arrow.classList.remove('bye')
    setTimeout(() => {
       arrow.classList.add('bye');
-   }, 1000);
+   }, 1250);
 }
 
 app.findStatement = () => {
@@ -125,7 +125,7 @@ app.findStatement = () => {
          goBack = true;
       }
    }
-   app.interval = setInterval(theInfo, 2000);
+   app.interval = setInterval(theInfo, 2500);
    app.place = 0;
    if (app.place == 0) {
       app.loadNewStatement(0);
@@ -149,7 +149,7 @@ app.urlLinks = () => {
       const urls = document.querySelectorAll('.url');
       for (link of urls) {
          link.addEventListener('click', (e) => {
-            const link = e.target.innerText;
+            const link = e.target.innerText.trim().length > 0 ? e.target.innerText : e.target.id;
             const placesToBe = link.toLowerCase() == 'kern' ? 'https://en.wikipedia.org/wiki/Kern_County,_California' : link.toLowerCase() == 'github' ? 'https://github.com/spriggs81' : link.toLowerCase() == 'linkedin' ? 'https://www.linkedin.com/in/john-s-836703a/' : link.toLowerCase() == 'Html5 Bolierplate'.toLowerCase() ? 'https://github.com/spriggs81/portfolio/blob/master/index.html' : link.trim();
             window.open(placesToBe);
          });
@@ -191,36 +191,6 @@ app.loadUp = (data) => {
       app.builder(load.main, load.type, load.id, load.cn, load.text, load.html, load.src, load.href, load.dataName, load.setAtt);
    }
 };
-
-app.thankYou = () => {
-   const header = [{
-      main: 'header',
-      type: 'div',
-      id: 'thanks',
-      cn: 'show-time'
-   }, {
-      main: '#thanks',
-      type: 'h1',
-      text: "Oh wow, have an excellent rest of your day!",
-      cn: 'thans'
-   }];
-   const main = [{
-      main: 'main',
-      type: 'section',
-      cn: 'thanks-holder'
-   }, {
-      main: '.thanks-holder',
-      type: 'h1',
-      text: "Thank you for reaching out.  I will make sure to reply to your message as soon as I can.  You can also reach me at info@spriggs.xyz"
-   }]
-   app.removeAll('header');
-   app.removeAll('main');
-   app.renameTitle('Thank You');
-   app.loadUp(header);
-   app.loadUp(main);
-   app.footer('Again Thank you for reaching out!');
-   app.urlLinks();
-}
 
 app.init = () => {
    part.head();

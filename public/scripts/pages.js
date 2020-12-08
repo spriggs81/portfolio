@@ -204,13 +204,25 @@ page.projects = () => {
       app: 'https://error-logs.herokuapp.com/',
       github: 'https://www.github.com/spriggs81/error_logs'
    }, {
+      title: 'Account Manager Reports',
+      app_type: 'node application',
+      app_tech: 'NodeJS, JavaScript, Node-Zendesk, Nodemailer',
+      problem:'My manager had weekly meetings with the account managers about their client\'s recent tickets.  My manager created a spreadsheet that took about an hour to an hour and a half to complete.   She asked if there was anything I could do to help her with the report.',
+      solution:'After reviewing the report, I created a customized application to complete the task for her.  The application had a batch file that my manager just needed to double click.  Within about thirty seconds, the application would provide the excel formatted report.  I offered an option to add the account manager\'s email address so the information would be emailable from the application and still under a minute delay.'
+   }, {
+      title: 'Client Survey Project (Zendesk Issue)',
+      app_type: 'web application',
+      app_tech: 'NodeJS, ExpressJS, EJS, Node-Zendesk',
+      problem:'The version of zendesk that the company had wouldn\'t allow automation for tickets that were labeled closed.  My manager wanted to do surveys for clients that recently had tickets closed out.  The automation and triggers he created never worked, and the task of finding the reason and how to fix it came to me.',
+      solution:'After locating the problem, the best fix I could think of was to create a custom application from my manager to complete the task that he needed to be completed.  Locating an NPM package (Node-Zendesk), I used the customized application to continue the management\'s survey project.'
+   }, {
       title: 'Support Tool',
       app_type: 'web application',
       app_tech: 'NodeJS, ExpressJS, PassportJS, MongoDB, MongooseJS, EJS, & Semantic UI',
       problem: "In my department(Support), we depended on information from a site controlled by another department.  Sometimes this information was out of date, incorrect, misleading, or missing necessary steps.  It reached the point that team members were sharing notes that had on clients.",
       solution: "Creating the app was meant to be a one-stop site to pick up information for our team.  Allowing the content to be updated without delays and a place to keep important information.  (Please note, I updated the  app to be more general as it was made for specific products originally.)  <br><br>Please feel free to create an account(account would be a normal user's account), if you would like to view the admin side please use (username: admin_user | password: password) <br>***please note: Your access is limited***",
       app: 'http://www.supporttools.ga',
-      github: 'https://www.github.com/spriggs81/portfolio'
+      github: 'https://github.com/spriggs81/SupportTool'
    }];
    const header = [];
    const main = [{
@@ -291,7 +303,7 @@ page.projects = () => {
                type: 'p',
                id: 'app-url-p' + count + '-stat2',
                cn: 'url-item',
-               html: 'GitHub URL: <span class="url">' + project.github + '</span>'
+               html: 'Github URL: <span class="url">' + project.github + '</span>'
             };
             items.push(githubUrl);
          }
@@ -341,7 +353,7 @@ page.contact = () => {
       setAtt: {
          name: "hidden-iframe",
          style: "display:none",
-         onload: "if(submitted) {app.thankYou();}"
+         onload: "if(submitted) {page.thankYou(document.querySelector('#name-field>input').value);}"
       }
    }, {
       main: 'main',
@@ -405,18 +417,55 @@ page.contact = () => {
       };
       formFeidls.push(div, label, data);
    }
-   const button = {
+   const submitDiv = {
       main: '.form-data',
+      type: 'div',
+      id: 'submit-area'
+   }
+   const button = {
+      main: '#submit-area',
       type: 'button',
       text: 'Submit'
    };
+
    app.removeAll('header');
    app.removeAll('main');
    app.renameTitle('Contact Page');
    app.loadUp(header);
    app.loadUp(main);
+   formFeidls.push(submitDiv);
    formFeidls.push(button);
    app.loadUp(formFeidls);
    part.footer('Contact Page');
+   app.urlLinks();
+}
+
+page.thankYou = (name) => {
+   const header = [{
+      main: 'header',
+      type: 'div',
+      id: 'thanks',
+      cn: 'show-time'
+   }, {
+      main: '#thanks',
+      type: 'h1',
+      html: "<span id='name'>"+name+"</span>, have an excellent rest of your day!",
+      cn: 'thanks'
+   }];
+   const main = [{
+      main: 'main',
+      type: 'section',
+      cn: 'thanks-holder'
+   }, {
+      main: '.thanks-holder',
+      type: 'h1',
+      text: "Thank you for reaching out.  I will make sure to reply to your message as soon as I can.  You can also reach me at info@spriggs.xyz"
+   }]
+   app.removeAll('header');
+   app.removeAll('main');
+   app.renameTitle('Thank You');
+   app.loadUp(header);
+   app.loadUp(main);
+   part.footer('Again Thank you for reaching out!');
    app.urlLinks();
 }

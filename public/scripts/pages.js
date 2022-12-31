@@ -185,7 +185,7 @@ page.projects = () => {
       app_tech: 'JavaScript & HTML5 / CSS3',
       problem: 'Try and show experienced developers, tech recruiters, project managers, and others that I can benefit their company.  Show that my customer service and software support experience has turned my mind to satisfy the company\'s and customer\'s needs.  Demonstrate that my ability to learn quickly and use what I have learned to it\'s fullest potential isn\'t something just placed on my resume.  Showing I have no problem completing research-related jobs and looking into bugs.',
       solution: 'This web page has one HTML file (Html5 Bolierplate), and everything you see on the page is being handled by the JavaScript and CSS files.  I believe using this method will allow one to see more of my coding skills.  The projects I have worked on solely by myself have mainly focused on helping my team and the company where I have been employed.',
-      app: 'http://www.spriggs.xyz',
+      app: 'http://www.johnspriggs.com',
       github: 'https://github.com/spriggs81/portfolio'
    }, {
       title: 'PM2-Watcher',
@@ -221,7 +221,7 @@ page.projects = () => {
       app_tech: 'NodeJS, ExpressJS, PassportJS, MongoDB, MongooseJS, EJS, & Semantic UI',
       problem: "In my department(Support), we depended on information from a site controlled by another department.  Sometimes this information was out of date, incorrect, misleading, or missing necessary steps.  It reached the point that team members were sharing notes that had on clients.",
       solution: "Creating the app was meant to be a one-stop site to pick up information for our team.  Allowing the content to be updated without delays and a place to keep important information.  (Please note, I updated the  app to be more general as it was made for specific products originally.)  <br><br>Please feel free to create an account(account would be a normal user's account), if you would like to view the admin side please use (username: admin_user | password: password) <br>***please note: Your access is limited***",
-      app: 'http://www.supporttools.ga',
+      //app: 'http://www.supporttools.ga',
       github: 'https://github.com/spriggs81/SupportTool'
    }];
    const header = [];

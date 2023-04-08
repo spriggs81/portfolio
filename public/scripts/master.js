@@ -1,7 +1,7 @@
 let submitted = false;
 const app = {};
 app.body = document.querySelector('body');
-app.statements = ["helping people", "spending time with my family", "backend coding", "learning new skills", "reading through logs", "playing with my son", "locating answers to problems", "creating new web apps", "barbequing", "researching complex issues", "being challenged", "challenging video games", "hands-on training", "resolving an unknown internal issue",'handling tasks other think too hard or tedious'];
+app.statements = ["helping people", "spending time with my family", "backend coding", "learning new skills", "reading through logs", "playing with my son & daughter", "locating answers to problems", "creating new web apps", "barbecuing", "researching complex issues", "being challenged", "gaming (PS4)", "hands-on training", "resolving an unknown internal issue",'providing my best'];
 
 app.removeClass = (arry, classname) => {
    for (menu of arry) {

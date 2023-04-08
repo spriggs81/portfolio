@@ -367,8 +367,8 @@ footer {
 
 }
 .skills-holder ul li {
-   padding: 5px 10px;
-   margin: 1px;
+   padding: .7rem;
+   /* margin: .5rem; */
    color: rgb(0, 49, 247);
    font-style: italic;
 }

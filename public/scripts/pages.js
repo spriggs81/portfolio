@@ -60,8 +60,9 @@ page.bio = () => {
       country: 'United States',
       cats_or_dogs: 'dogs'
    };
-   const p1 = "My name is John Spriggs, and I used to be a Delivery Support Analyst for VizExplorer.  At VizExplorer, I communicated with clients holding high-level rankings within their organization about issues or questions with our software.  As an after-hours scheduled employee, I dealt with complex problems, mainly alone with no supervision, that required SQL, JavaScript, NodeJS, and systems OS knowledge to process.  After reviewing, reproducing, and researching these problems, I would correct the issue.  In instants of extensive changes to the application/software or the required work was outside of the teams' area of expertise. I would provide detailed information from my research, the place I believe the problem(s)' located, suggestions on how I think the issue should be resolved, and escalate to the correct department to review."
-   const p2 = "I have always enjoyed learning new and challenging skills, especially skill technically related.  Learning Nodejs, JavaScript, and HTML5/CSS3 (<span class='url'>https://accredible.com/16045116</span>) has been challenging, but creating new apps or figuring out errors or problems without using google searches has been fun and inspiring.  If I'm not in front of a computer, you can find me with my wonderful family, spending time with my 2-year-old son, or laughing with my beautiful spouse.  I believe that you should treat people as you would like to be treated, which goes a long way once applied to the customer service you provide."
+   const p1 = "I'm John Spriggs, I was the Technical Support Engineer at Grain Technologies. My primary responsibility was to research and resolve escalated issues from the support team. I worked with a tech stack that included NodeJS, JavaScript, ReactJS, iOS, and PostgreSQL and used Shortcut as our project management software to create stories and push out pull requests."
+   const p2 = "My role involved analyzing and troubleshooting customer-reported issues and working closely with the development team to identify and implement solutions. I also provided technical guidance and support to the support team to ensure efficient and effective resolution of customer issues."
+   const p3 = "In addition to my technical support duties, I contributed to developing our product by identifying and documenting bugs and improvements and participating in code reviews and testing. Overall, my focus at Grain Technologies was on delivering high-quality technical support and helping to improve the product continuously."
    const header = [{
       main: 'header',
       type: 'div',
@@ -88,6 +89,10 @@ page.bio = () => {
       main: 'main>div',
       type: 'p',
       html: p2
+   }, {
+      main: 'main>div',
+      type: 'p',
+      html: p3
    }];
    const displayStats = [];
    app.removeAll('header');
@@ -133,8 +138,8 @@ page.skills = () => {
       cn: 'skills-holder'
    }];
    const skills = {
-      app_related_skills: ['NodeJS', 'ExpressJS', 'EJS', 'MongoDB', 'MongooseJS', 'Pm2', 'JavaScript', 'Bootstrap', 'Semantic UI', 'HTML5 / CSS3', 'Git', 'GitHub', 'Heroku', 'Postman'],
-      support_related_skills: ['Escalation Management', 'SaaS Experience', 'B2B Experience', 'Zendesk Experience', 'Help Document Creation', 'Data Management (MS SQL)', 'Code Troubleshooting (Javascript, NodeJS)', 'Salesforce (Ticket System)', 'Eventum (Ticket System & Developer Bugs)', 'Jira (Ticket System & Developer Bugs)', 'Project Management', 'Decision-Making', 'Crisis Management', 'Account Management', 'Quality Assurance (QA)', 'Agile Methodologies', 'Software Development'],
+      app_related_skills: ['NodeJS', 'ExpressJS', 'EJS', 'MongoDB', 'PostgreSQL', 'MongooseJS', 'Pm2', 'JavaScript', 'Bootstrap', 'Semantic UI', 'HTML5 / CSS3', 'Git', 'GitHub', 'Heroku', 'Postman', 'ReactJS'],
+      support_related_skills: ['Escalation Management', 'SaaS Experience', 'B2B Experience', 'Zendesk Experience', 'Help Document Creation', 'Data Management (MS SQL, PostgreSQL)', 'Code Troubleshooting (Javascript, NodeJS, ReactJS,iOS)', 'Salesforce (Ticket System)', 'Eventum (Ticket System & Developer Bugs)', 'Jira (Ticket System & Developer Bugs)', 'Project Management', 'Decision-Making', 'Crisis Management', 'Account Management', 'Quality Assurance (QA)', 'Agile Methodologies', 'Software Development'],
       general_skills: ['Customer Service', 'Customer Relations', 'Data Entry', 'Problem-solving', 'Active listening', 'Communication', 'Interpersonal', 'Training/Demos/Coaching', 'Leadership', 'Management', 'Troubleshooting']
    }
    const createdSkill = [];
@@ -183,45 +188,62 @@ page.projects = () => {
       title: 'My Portfolio',
       app_type: 'Static Web Page',
       app_tech: 'JavaScript & HTML5 / CSS3',
-      problem: 'Try and show experienced developers, tech recruiters, project managers, and others that I can benefit their company.  Show that my customer service and software support experience has turned my mind to satisfy the company\'s and customer\'s needs.  Demonstrate that my ability to learn quickly and use what I have learned to it\'s fullest potential isn\'t something just placed on my resume.  Showing I have no problem completing research-related jobs and looking into bugs.',
-      solution: 'This web page has one HTML file (Html5 Bolierplate), and everything you see on the page is being handled by the JavaScript and CSS files.  I believe using this method will allow one to see more of my coding skills.  The projects I have worked on solely by myself have mainly focused on helping my team and the company where I have been employed.',
-      app: 'http://www.spriggs.xyz',
+      reason: `Since I didn't have any ways to display my ability to handle writing functions I decided 
+               to create a profolio using nothing but functions.  This page five JavaScript files that 
+               controls the page.  There is only one HTML file and it's pretty much empty.  Hope this shows 
+               someone I can handle creating and managing functions.`,
+      app: 'http://www.johnspriggs.com',
       github: 'https://github.com/spriggs81/portfolio'
    }, {
       title: 'PM2-Watcher',
       app_type: 'NPM Node Module',
       app_tech: 'NodeJS, ExpressJS, Pm2, JavaScript, HTML5 / CSS3',
-      problem: "Pm2 didn't send out automatic notifications unless part of a plan that could get costly. If someone wasn't watching the server, they could miss issues that could affect the application's stability.  In some cases, the client may not notice a minor problem that could lead to a critical one.",
-      solution: "This application monitors all pm2 processes and will send out an email notification if a process goes offline.  If a process recovers, then a follow-up email is sent out.",
+      reason: `Working with PM2 I noticed that there was a problem with there being issues that would 
+               start off small, but later managed to become large since no one would catch the smaller 
+               issue.  I created this app so, that before an issue reached the point the would start a 
+               program using the PM2 process someone could be notified.  This app sends out an email when 
+               processes go down and if the process comes back online a new email is sent to provide that 
+               information as well.`,
       app: 'https://www.npmjs.com/package/pm2-watcher',
       github: 'https://www.github.com/spriggs81/pm2-watcher'
    }, {
       title: 'Error Logs',
       app_type: 'Web Application',
       app_tech: 'NodeJS, ExpressJS, EJS, Event-Stream, SQL-Formatter, & Bootstrap 4.3.1',
-      problem: "When researching a client related issue, the log files could explain 85% of the client's problem. Due to the problematic display, it could be easy for someone to overlook essential data related to the client's situation.",
-      solution: "Creating the app was meant to make the logs more readable and less intimidating.  Allowing the support team to be able to resolve issues in a more timely manner.",
-      app: 'https://error-logs.herokuapp.com/',
+      reason: `This was a project that I created to help our team review the logs that we used to 
+               locate client's problems.  The app took the JSON like string and made it more readable. 
+               There was also a search option, to help the team locate problems quickly without all 
+               the noise of cluttered words.`,
       github: 'https://www.github.com/spriggs81/error_logs'
    }, {
       title: 'Account Manager Reports',
       app_type: 'node application',
       app_tech: 'NodeJS, JavaScript, Node-Zendesk, Nodemailer',
-      problem:'My manager had weekly meetings with the account managers about their client\'s recent tickets.  My manager created a spreadsheet that took about an hour to an hour and a half to complete.   She asked if there was anything I could do to help her with the report.',
-      solution:'After reviewing the report, I created a customized application to complete the task for her.  The application had a batch file that my manager just needed to double click.  Within about thirty seconds, the application would provide the excel formatted report.  I offered an option to add the account manager\'s email address so the information would be emailable from the application and still under a minute delay.'
+      reason: `My lead that became the new manager still had to create reports for the account managers 
+               which took up a lot of her time.  Since I created an app for the pervious manager, she 
+               decided to ask me to look into creating a way to handle this for her.  Seems that the 
+               reports took up an hour and half of her busy day.  I created a app using the Zendesk API 
+               and providing my manager with a bat file that once double clicked provided the same report 
+               within one minute.`
    }, {
       title: 'Client Survey Project (Zendesk Issue)',
       app_type: 'web application',
       app_tech: 'NodeJS, ExpressJS, EJS, Node-Zendesk',
-      problem:'The version of zendesk that the company had wouldn\'t allow automation for tickets that were labeled closed.  My manager wanted to do surveys for clients that recently had tickets closed out.  The automation and triggers he created never worked, and the task of finding the reason and how to fix it came to me.',
-      solution:'After locating the problem, the best fix I could think of was to create a custom application from my manager to complete the task that he needed to be completed.  Locating an NPM package (Node-Zendesk), I used the customized application to continue the management\'s survey project.'
+      reason: `My manager had tried to create a suvery to send out to users to check on the service that
+               the user was receiving from the Support team.  This was managed by Zendesk automations, 
+               but never worked.  My job was to locate the reason and it seemed that when a ticket was 
+               closed the automation never worked on the closed status or our plan was reason.  I used 
+               the Zendesk API to custom create the program to handle this`
    }, {
       title: 'Support Tool',
       app_type: 'web application',
       app_tech: 'NodeJS, ExpressJS, PassportJS, MongoDB, MongooseJS, EJS, & Semantic UI',
-      problem: "In my department(Support), we depended on information from a site controlled by another department.  Sometimes this information was out of date, incorrect, misleading, or missing necessary steps.  It reached the point that team members were sharing notes that had on clients.",
-      solution: "Creating the app was meant to be a one-stop site to pick up information for our team.  Allowing the content to be updated without delays and a place to keep important information.  (Please note, I updated the  app to be more general as it was made for specific products originally.)  <br><br>Please feel free to create an account(account would be a normal user's account), if you would like to view the admin side please use (username: admin_user | password: password) <br>***please note: Your access is limited***",
-      app: 'http://www.supporttools.ga',
+      reason: `I created this app because our team was dependent on a tool that was managed 
+               by another team.  That tool of information was controlled by another team that 
+               rarely was updated and we had personal notes in my team of updates that were needed.  
+               So I created a tool that my team could manage, but the company decided that learning 
+               a new tool would be counterproductive.  It was liked by the team and other teams as 
+               well, shame it didn't make it far`,
       github: 'https://github.com/spriggs81/SupportTool'
    }];
    const header = [];
@@ -232,7 +254,7 @@ page.projects = () => {
    }];
    const items = [];
    let count = 0;
-   for (project of projects) {
+   for (project of projects) { 
       count++
       const itemSpace = {
          main: '#info-projects',
@@ -266,19 +288,13 @@ page.projects = () => {
          cn: 'stat-items',
          html: '<span class="lab">Project Tech:</span>' + project.app_tech
       };
-      const itemProblem = {
+      const itemReason = {
          main: '#project' + count,
          cn: 'grid-1',
          type: 'p',
-         html: '<span class="lab">The Problem:</span>\n' + project.problem
+         html: '<span class="lab">Reason for the App:</span>\n' + project.reason
       };
-      const itemSolution = {
-         main: '#project' + count,
-         cn: 'grid-1',
-         type: 'p',
-         html: '<span class="lab">The Solution:</span>\n' + project.solution
-      };
-      items.push(itemSpace, itemTitle, itemStatHolder, itemStat1, itemStat2, itemProblem, itemSolution);
+      items.push(itemSpace, itemTitle, itemStatHolder, itemStat1, itemStat2, itemReason);
       const itemUrlHolder = {
          main: '#project' + count,
          cn: 'url-place',

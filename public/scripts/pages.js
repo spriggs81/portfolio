@@ -233,7 +233,8 @@ page.projects = () => {
                the user was receiving from the Support team.  This was managed by Zendesk automations, 
                but never worked.  My job was to locate the reason and it seemed that when a ticket was 
                closed the automation never worked on the closed status or our plan was reason.  I used 
-               the Zendesk API to custom create the program to handle this`
+               the Zendesk API to custom create the program to handle this`,
+      github: 'https://github.com/spriggs81/Zendesk_Survey_Update'
    }, {
       title: 'Support Tool',
       app_type: 'web application',

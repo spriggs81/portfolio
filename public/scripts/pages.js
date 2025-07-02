@@ -202,80 +202,86 @@ page.skills = () => {
 
 page.projects = () => {
    const projects = [{
-      title: 'My Portfolio',
-      app_type: 'Static Web Page',
-      app_tech: 'JavaScript & HTML5 / CSS3',
-      reason: `To showcase my proficiency in handling and managing functions, I took the initiative to 
-               create a portfolio exclusively comprised of JavaScript files. This portfolio consists of 
-               five JavaScript files that effectively control the entire page, while the accompanying 
-               HTML file remains intentionally minimalistic. By demonstrating my ability to create and 
-               manage functions independently, I aim to highlight my competence in this area to 
-               potential employers.`,
-      app: 'http://www.johnspriggs.com',
-      github: 'https://github.com/spriggs81/portfolio'
-   }, {
-      title: 'PM2-Watcher',
-      app_type: 'NPM Node Module',
-      app_tech: 'NodeJS, ExpressJS, Pm2, JavaScript, HTML5 / CSS3',
-      reason: `While collaborating with PM2, I identified a recurring challenge wherein minor issues would 
-               often escalate into significant problems due to a lack of timely detection. To address this 
-               issue proactively, I developed an application that monitors PM2 processes and notifies 
-               relevant stakeholders before an issue reaches a critical stage. This application promptly 
-               sends out email notifications when processes go down and provides updates when they are 
-               restored. By implementing this solution, I aimed to ensure prompt awareness and response to 
-               process disruptions, thereby improving overall operational efficiency.`,
-      app: 'https://www.npmjs.com/package/pm2-watcher',
-      github: 'https://www.github.com/spriggs81/pm2-watcher'
-   }, {
-      title: 'Error Logs',
-      app_type: 'Web Application',
-      app_tech: 'NodeJS, ExpressJS, EJS, Event-Stream, SQL-Formatter, & Bootstrap 4.3.1',
-      reason: `I spearheaded the development of a project aimed at enhancing our team's log review process 
-               for identifying client issues. The application I created transformed complex JSON-like strings 
-               into a more readable format, streamlining the analysis workflow. Additionally, I incorporated a 
-               powerful search functionality to enable our team to efficiently locate specific problems amidst 
-               the clutter of extensive log data. This initiative significantly improved our ability to swiftly 
-               pinpoint and address client issues, ultimately enhancing our troubleshooting capabilities and 
-               optimizing overall productivity.`,
-      github: 'https://www.github.com/spriggs81/error_logs'
-   }, {
-      title: 'Account Manager Reports',
-      app_type: 'node application',
-      app_tech: 'NodeJS, JavaScript, Node-Zendesk, Nodemailer',
-      reason: `Recognizing the time-consuming task of report generation for our account managers, I was approached 
-               by my lead, who had recently transitioned into a managerial role. Having previously developed an 
-               application for the former manager, I was entrusted with finding a solution to streamline this 
-               process. Understanding the burden of spending an hour and a half each day on reports, I leveraged the 
-               Zendesk API to create a custom app. To simplify the workflow, I provided my manager with a convenient 
-               bat file that, when double-clicked, generated the same report within a mere minute. This initiative 
-               not only alleviated the significant time investment but also empowered my manager to focus more 
-               effectively on critical responsibilities.`
-   }, {
-      title: 'Client Survey Project (Zendesk Issue)',
-      app_type: 'web application',
-      app_tech: 'NodeJS, ExpressJS, EJS, Node-Zendesk',
-      reason: `Recognizing the need for a user satisfaction survey to assess the support services provided by our team, 
-               my manager attempted to implement this functionality using Zendesk automations. However, the system 
-               failed to function as intended. Tasked with investigating the issue, I discovered that the automation 
-               was not triggered when a ticket reached a closed status, possibly due to limitations in our subscription 
-               plan. To address this challenge, I took initiative and utilized the Zendesk API to develop a customized 
-               program tailored to our specific requirements. This solution successfully handled the survey process, 
-               ensuring that users received prompt feedback and enabling our team to gather valuable insights into 
-               customer satisfaction.`,
-      github: 'https://github.com/spriggs81/Zendesk_Survey_Update'
-   }, {
-      title: 'Support Tool',
-      app_type: 'web application',
-      app_tech: 'NodeJS, ExpressJS, PassportJS, MongoDB, MongooseJS, EJS, & Semantic UI',
-      reason: `Recognizing the limitations of relying on a tool managed by another team for accessing crucial information, 
-               I took it upon myself to develop a custom app to address this challenge. Our team often faced difficulties 
-               as the existing tool was infrequently updated, and we had important updates and notes that needed to be 
-               recorded. With the aim of providing a more efficient solution, I created an app that allowed our team to 
-               manage the information independently. Regrettably, despite its positive reception within our team and among 
-               other teams, the decision was made by the company that adopting a new tool would not be feasible in terms of 
-               productivity. Nonetheless, I am proud of the app I created and the value it brought to our immediate team 
-               and beyond.`,
-      github: 'https://github.com/spriggs81/SupportTool'
+         title: 'Simple AI Spam Detector',
+         app_type: 'AI',
+         app_tech: 'Python, NumPy, Scikit-Learn, & Pandas',
+         reason: `I wanted to learn about AI and create a project that went over the basics`,
+         github: 'https://github.com/spriggs81/Simple-AI-Spam-Detector'
+      }, {
+         title: 'My Portfolio',
+         app_type: 'Static Web Page',
+         app_tech: 'JavaScript & HTML5 / CSS3',
+         reason: `To showcase my proficiency in handling and managing functions, I took the initiative to 
+                  create a portfolio exclusively comprised of JavaScript files. This portfolio consists of 
+                  five JavaScript files that effectively control the entire page, while the accompanying 
+                  HTML file remains intentionally minimalistic. By demonstrating my ability to create and 
+                  manage functions independently, I aim to highlight my competence in this area to 
+                  potential employers.`,
+         app: 'http://www.johnspriggs.com',
+         github: 'https://github.com/spriggs81/portfolio'
+      }, {
+         title: 'PM2-Watcher',
+         app_type: 'NPM Node Module',
+         app_tech: 'NodeJS, ExpressJS, Pm2, JavaScript, HTML5 / CSS3',
+         reason: `While collaborating with PM2, I identified a recurring challenge wherein minor issues would 
+                  often escalate into significant problems due to a lack of timely detection. To address this 
+                  issue proactively, I developed an application that monitors PM2 processes and notifies 
+                  relevant stakeholders before an issue reaches a critical stage. This application promptly 
+                  sends out email notifications when processes go down and provides updates when they are 
+                  restored. By implementing this solution, I aimed to ensure prompt awareness and response to 
+                  process disruptions, thereby improving overall operational efficiency.`,
+         app: 'https://www.npmjs.com/package/pm2-watcher',
+         github: 'https://www.github.com/spriggs81/pm2-watcher'
+      }, {
+         title: 'Error Logs',
+         app_type: 'Web Application',
+         app_tech: 'NodeJS, ExpressJS, EJS, Event-Stream, SQL-Formatter, & Bootstrap 4.3.1',
+         reason: `I spearheaded the development of a project aimed at enhancing our team's log review process 
+                  for identifying client issues. The application I created transformed complex JSON-like strings 
+                  into a more readable format, streamlining the analysis workflow. Additionally, I incorporated a 
+                  powerful search functionality to enable our team to efficiently locate specific problems amidst 
+                  the clutter of extensive log data. This initiative significantly improved our ability to swiftly 
+                  pinpoint and address client issues, ultimately enhancing our troubleshooting capabilities and 
+                  optimizing overall productivity.`,
+         github: 'https://www.github.com/spriggs81/error_logs'
+      }, {
+         title: 'Account Manager Reports',
+         app_type: 'node application',
+         app_tech: 'NodeJS, JavaScript, Node-Zendesk, Nodemailer',
+         reason: `Recognizing the time-consuming task of report generation for our account managers, I was approached 
+                  by my lead, who had recently transitioned into a managerial role. Having previously developed an 
+                  application for the former manager, I was entrusted with finding a solution to streamline this 
+                  process. Understanding the burden of spending an hour and a half each day on reports, I leveraged the 
+                  Zendesk API to create a custom app. To simplify the workflow, I provided my manager with a convenient 
+                  bat file that, when double-clicked, generated the same report within a mere minute. This initiative 
+                  not only alleviated the significant time investment but also empowered my manager to focus more 
+                  effectively on critical responsibilities.`
+      }, {
+         title: 'Client Survey Project (Zendesk Issue)',
+         app_type: 'web application',
+         app_tech: 'NodeJS, ExpressJS, EJS, Node-Zendesk',
+         reason: `Recognizing the need for a user satisfaction survey to assess the support services provided by our team, 
+                  my manager attempted to implement this functionality using Zendesk automations. However, the system 
+                  failed to function as intended. Tasked with investigating the issue, I discovered that the automation 
+                  was not triggered when a ticket reached a closed status, possibly due to limitations in our subscription 
+                  plan. To address this challenge, I took initiative and utilized the Zendesk API to develop a customized 
+                  program tailored to our specific requirements. This solution successfully handled the survey process, 
+                  ensuring that users received prompt feedback and enabling our team to gather valuable insights into 
+                  customer satisfaction.`,
+         github: 'https://github.com/spriggs81/Zendesk_Survey_Update'
+      }, {
+         title: 'Support Tool',
+         app_type: 'web application',
+         app_tech: 'NodeJS, ExpressJS, PassportJS, MongoDB, MongooseJS, EJS, & Semantic UI',
+         reason: `Recognizing the limitations of relying on a tool managed by another team for accessing crucial information, 
+                  I took it upon myself to develop a custom app to address this challenge. Our team often faced difficulties 
+                  as the existing tool was infrequently updated, and we had important updates and notes that needed to be 
+                  recorded. With the aim of providing a more efficient solution, I created an app that allowed our team to 
+                  manage the information independently. Regrettably, despite its positive reception within our team and among 
+                  other teams, the decision was made by the company that adopting a new tool would not be feasible in terms of 
+                  productivity. Nonetheless, I am proud of the app I created and the value it brought to our immediate team 
+                  and beyond.`,
+         github: 'https://github.com/spriggs81/SupportTool'
    }];
    const header = [];
    const main = [{
